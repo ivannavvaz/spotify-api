@@ -1,0 +1,11 @@
+###> symfony/framework-bundle ###
+/.env.local
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> app/extras ###
+/.idea
+/db
+###< app/extras ###
