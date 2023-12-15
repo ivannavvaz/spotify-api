@@ -31,5 +31,26 @@ class Paypal
      */
     private $formaPago;
 
+    public function getUsernamePaypal(): string
+    {
+        return $this->usernamePaypal;
+    }
+
+    public function setUsernamePaypal(string $usernamePaypal): void
+    {
+        $this->usernamePaypal = $usernamePaypal;
+    }
+
+    public function getFormaPago(): FormaPago
+    {
+        return $this->formaPago;
+    }
+
+    public function setFormaPago(FormaPago $formaPago): void
+    {
+        $this->formaPago = $formaPago;
+    }
+
+
 
 }

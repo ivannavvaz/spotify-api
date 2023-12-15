@@ -35,5 +35,36 @@ class DoctrineMigrationVersions
      */
     private $executionTime;
 
+    public function getVersion(): string
+    {
+        return $this->version;
+    }
+
+    public function setVersion(string $version): void
+    {
+        $this->version = $version;
+    }
+
+    public function getExecutedAt(): ?\DateTime
+    {
+        return $this->executedAt;
+    }
+
+    public function setExecutedAt(?\DateTime $executedAt): void
+    {
+        $this->executedAt = $executedAt;
+    }
+
+    public function getExecutionTime(): ?int
+    {
+        return $this->executionTime;
+    }
+
+    public function setExecutionTime(?int $executionTime): void
+    {
+        $this->executionTime = $executionTime;
+    }
+
+
 
 }

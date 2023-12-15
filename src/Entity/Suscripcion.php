@@ -45,5 +45,47 @@ class Suscripcion
      */
     private $premiumUsuario;
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    public function getFechaInicio(): \DateTime
+    {
+        return $this->fechaInicio;
+    }
+
+    public function setFechaInicio(\DateTime $fechaInicio): void
+    {
+        $this->fechaInicio = $fechaInicio;
+    }
+
+    public function getFechaFin(): \DateTime
+    {
+        return $this->fechaFin;
+    }
+
+    public function setFechaFin(\DateTime $fechaFin): void
+    {
+        $this->fechaFin = $fechaFin;
+    }
+
+    public function getPremiumUsuario(): Premium
+    {
+        return $this->premiumUsuario;
+    }
+
+    public function setPremiumUsuario(Premium $premiumUsuario): void
+    {
+        $this->premiumUsuario = $premiumUsuario;
+    }
+
+
+
 
 }

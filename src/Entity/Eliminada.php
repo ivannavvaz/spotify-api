@@ -31,5 +31,26 @@ class Eliminada
      */
     private $playlist;
 
+    public function getFechaEliminacion(): \DateTime
+    {
+        return $this->fechaEliminacion;
+    }
+
+    public function setFechaEliminacion(\DateTime $fechaEliminacion): void
+    {
+        $this->fechaEliminacion = $fechaEliminacion;
+    }
+
+    public function getPlaylist(): Playlist
+    {
+        return $this->playlist;
+    }
+
+    public function setPlaylist(Playlist $playlist): void
+    {
+        $this->playlist = $playlist;
+    }
+
+
 
 }

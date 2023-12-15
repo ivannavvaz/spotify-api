@@ -31,5 +31,26 @@ class Activa
      */
     private $playlist;
 
+    public function isEsCompartida(): bool
+    {
+        return $this->esCompartida;
+    }
+
+    public function setEsCompartida(bool $esCompartida): void
+    {
+        $this->esCompartida = $esCompartida;
+    }
+
+    public function getPlaylist(): Playlist
+    {
+        return $this->playlist;
+    }
+
+    public function setPlaylist(Playlist $playlist): void
+    {
+        $this->playlist = $playlist;
+    }
+
+
 
 }

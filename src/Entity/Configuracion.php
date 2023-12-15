@@ -75,5 +75,76 @@ class Configuracion
      */
     private $tipoDescarga;
 
+    public function isAutoplay(): bool
+    {
+        return $this->autoplay;
+    }
+
+    public function setAutoplay(bool $autoplay): void
+    {
+        $this->autoplay = $autoplay;
+    }
+
+    public function isAjuste(): bool
+    {
+        return $this->ajuste;
+    }
+
+    public function setAjuste(bool $ajuste): void
+    {
+        $this->ajuste = $ajuste;
+    }
+
+    public function isNormalizacion(): bool
+    {
+        return $this->normalizacion;
+    }
+
+    public function setNormalizacion(bool $normalizacion): void
+    {
+        $this->normalizacion = $normalizacion;
+    }
+
+    public function getUsuario(): Usuario
+    {
+        return $this->usuario;
+    }
+
+    public function setUsuario(Usuario $usuario): void
+    {
+        $this->usuario = $usuario;
+    }
+
+    public function getCalidad(): Calidad
+    {
+        return $this->calidad;
+    }
+
+    public function setCalidad(Calidad $calidad): void
+    {
+        $this->calidad = $calidad;
+    }
+
+    public function getIdioma(): Idioma
+    {
+        return $this->idioma;
+    }
+
+    public function setIdioma(Idioma $idioma): void
+    {
+        $this->idioma = $idioma;
+    }
+
+    public function getTipoDescarga(): TipoDescarga
+    {
+        return $this->tipoDescarga;
+    }
+
+    public function setTipoDescarga(TipoDescarga $tipoDescarga): void
+    {
+        $this->tipoDescarga = $tipoDescarga;
+    }
+
+
 
 }

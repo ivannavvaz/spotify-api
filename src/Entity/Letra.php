@@ -38,5 +38,36 @@ class Letra
      */
     private $cancion;
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    public function getRuta(): string
+    {
+        return $this->ruta;
+    }
+
+    public function setRuta(string $ruta): void
+    {
+        $this->ruta = $ruta;
+    }
+
+    public function getCancion(): Cancion
+    {
+        return $this->cancion;
+    }
+
+    public function setCancion(Cancion $cancion): void
+    {
+        $this->cancion = $cancion;
+    }
+
+
 
 }

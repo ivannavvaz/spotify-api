@@ -66,5 +66,75 @@ class Capitulo
      */
     private $podcast;
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    public function getTitulo(): string
+    {
+        return $this->titulo;
+    }
+
+    public function setTitulo(string $titulo): void
+    {
+        $this->titulo = $titulo;
+    }
+
+    public function getDescripcion(): ?string
+    {
+        return $this->descripcion;
+    }
+
+    public function setDescripcion(?string $descripcion): void
+    {
+        $this->descripcion = $descripcion;
+    }
+
+    public function getDuracion(): int
+    {
+        return $this->duracion;
+    }
+
+    public function setDuracion(int $duracion): void
+    {
+        $this->duracion = $duracion;
+    }
+
+    public function getFecha(): \DateTime
+    {
+        return $this->fecha;
+    }
+
+    public function setFecha(\DateTime $fecha): void
+    {
+        $this->fecha = $fecha;
+    }
+
+    public function getNumeroReproducciones(): int
+    {
+        return $this->numeroReproducciones;
+    }
+
+    public function setNumeroReproducciones(int $numeroReproducciones): void
+    {
+        $this->numeroReproducciones = $numeroReproducciones;
+    }
+
+    public function getPodcast(): Podcast
+    {
+        return $this->podcast;
+    }
+
+    public function setPodcast(Podcast $podcast): void
+    {
+        $this->podcast = $podcast;
+    }
+
 
 }
