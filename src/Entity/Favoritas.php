@@ -24,5 +24,17 @@ class Favoritas
      */
     private $playlist;
 
+    public function getPlaylist(): Playlist
+    {
+        return $this->playlist;
+    }
+
+    public function setPlaylist(Playlist $playlist): void
+    {
+        $this->playlist = $playlist;
+    }
+
+
+
 
 }

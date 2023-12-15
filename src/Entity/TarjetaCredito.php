@@ -52,5 +52,56 @@ class TarjetaCredito
      */
     private $formaPago;
 
+    public function getNumeroTarjeta(): string
+    {
+        return $this->numeroTarjeta;
+    }
+
+    public function setNumeroTarjeta(string $numeroTarjeta): void
+    {
+        $this->numeroTarjeta = $numeroTarjeta;
+    }
+
+    public function isMesCaducidad(): bool
+    {
+        return $this->mesCaducidad;
+    }
+
+    public function setMesCaducidad(bool $mesCaducidad): void
+    {
+        $this->mesCaducidad = $mesCaducidad;
+    }
+
+    public function getAnyoCaducidad(): \DateTime
+    {
+        return $this->anyoCaducidad;
+    }
+
+    public function setAnyoCaducidad(\DateTime $anyoCaducidad): void
+    {
+        $this->anyoCaducidad = $anyoCaducidad;
+    }
+
+    public function getCodigoSeguridad(): int
+    {
+        return $this->codigoSeguridad;
+    }
+
+    public function setCodigoSeguridad(int $codigoSeguridad): void
+    {
+        $this->codigoSeguridad = $codigoSeguridad;
+    }
+
+    public function getFormaPago(): FormaPago
+    {
+        return $this->formaPago;
+    }
+
+    public function setFormaPago(FormaPago $formaPago): void
+    {
+        $this->formaPago = $formaPago;
+    }
+
+
 
 }

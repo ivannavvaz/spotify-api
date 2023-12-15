@@ -90,4 +90,85 @@ class Cancion
         $this->premiumUsuario = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    public function getTitulo(): string
+    {
+        return $this->titulo;
+    }
+
+    public function setTitulo(string $titulo): void
+    {
+        $this->titulo = $titulo;
+    }
+
+    public function getDuracion(): int
+    {
+        return $this->duracion;
+    }
+
+    public function setDuracion(int $duracion): void
+    {
+        $this->duracion = $duracion;
+    }
+
+    public function getRuta(): ?string
+    {
+        return $this->ruta;
+    }
+
+    public function setRuta(?string $ruta): void
+    {
+        $this->ruta = $ruta;
+    }
+
+    public function getNumeroReproducciones(): int
+    {
+        return $this->numeroReproducciones;
+    }
+
+    public function setNumeroReproducciones(int $numeroReproducciones): void
+    {
+        $this->numeroReproducciones = $numeroReproducciones;
+    }
+
+    public function getAlbum(): Album
+    {
+        return $this->album;
+    }
+
+    public function setAlbum(Album $album): void
+    {
+        $this->album = $album;
+    }
+
+    public function getUsuario(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+    {
+        return $this->usuario;
+    }
+
+    public function setUsuario(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $usuario): void
+    {
+        $this->usuario = $usuario;
+    }
+
+    public function getPremiumUsuario(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+    {
+        return $this->premiumUsuario;
+    }
+
+    public function setPremiumUsuario(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $premiumUsuario): void
+    {
+        $this->premiumUsuario = $premiumUsuario;
+    }
+
+
 }

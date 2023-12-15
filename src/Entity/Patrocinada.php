@@ -45,5 +45,45 @@ class Patrocinada
      */
     private $playlist;
 
+    public function isPatrocinada(): bool
+    {
+        return $this->patrocinada;
+    }
+
+    public function setPatrocinada(bool $patrocinada): void
+    {
+        $this->patrocinada = $patrocinada;
+    }
+
+    public function getFechaInicio(): \DateTime
+    {
+        return $this->fechaInicio;
+    }
+
+    public function setFechaInicio(\DateTime $fechaInicio): void
+    {
+        $this->fechaInicio = $fechaInicio;
+    }
+
+    public function getFechaFin(): ?\DateTime
+    {
+        return $this->fechaFin;
+    }
+
+    public function setFechaFin(?\DateTime $fechaFin): void
+    {
+        $this->fechaFin = $fechaFin;
+    }
+
+    public function getPlaylist(): Playlist
+    {
+        return $this->playlist;
+    }
+
+    public function setPlaylist(Playlist $playlist): void
+    {
+        $this->playlist = $playlist;
+    }
+
 
 }

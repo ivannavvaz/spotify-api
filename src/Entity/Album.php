@@ -88,4 +88,96 @@ class Album
         $this->usuario = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    public function getTitulo(): string
+    {
+        return $this->titulo;
+    }
+
+    public function setTitulo(string $titulo): void
+    {
+        $this->titulo = $titulo;
+    }
+
+    public function getImagen(): string
+    {
+        return $this->imagen;
+    }
+
+    public function setImagen(string $imagen): void
+    {
+        $this->imagen = $imagen;
+    }
+
+    public function isPatrocinado(): bool
+    {
+        return $this->patrocinado;
+    }
+
+    public function setPatrocinado(bool $patrocinado): void
+    {
+        $this->patrocinado = $patrocinado;
+    }
+
+    public function getFechaInicioPatrocinio(): ?\DateTime
+    {
+        return $this->fechaInicioPatrocinio;
+    }
+
+    public function setFechaInicioPatrocinio(?\DateTime $fechaInicioPatrocinio): void
+    {
+        $this->fechaInicioPatrocinio = $fechaInicioPatrocinio;
+    }
+
+    public function getFechaFinPatrocinio(): ?\DateTime
+    {
+        return $this->fechaFinPatrocinio;
+    }
+
+    public function setFechaFinPatrocinio(?\DateTime $fechaFinPatrocinio): void
+    {
+        $this->fechaFinPatrocinio = $fechaFinPatrocinio;
+    }
+
+    public function getAnyo(): ?\DateTime
+    {
+        return $this->anyo;
+    }
+
+    public function setAnyo(?\DateTime $anyo): void
+    {
+        $this->anyo = $anyo;
+    }
+
+    public function getArtista(): Artista
+    {
+        return $this->artista;
+    }
+
+    public function setArtista(Artista $artista): void
+    {
+        $this->artista = $artista;
+    }
+
+    public function getUsuario(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+    {
+        return $this->usuario;
+    }
+
+    public function setUsuario(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $usuario): void
+    {
+        $this->usuario = $usuario;
+    }
+
+
+
 }

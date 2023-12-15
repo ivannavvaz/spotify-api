@@ -55,5 +55,57 @@ class Pago
      */
     private $formaPago;
 
+    public function getNumeroOrden(): int
+    {
+        return $this->numeroOrden;
+    }
+
+    public function setNumeroOrden(int $numeroOrden): void
+    {
+        $this->numeroOrden = $numeroOrden;
+    }
+
+    public function getFecha(): \DateTime
+    {
+        return $this->fecha;
+    }
+
+    public function setFecha(\DateTime $fecha): void
+    {
+        $this->fecha = $fecha;
+    }
+
+    public function getTotal(): float
+    {
+        return $this->total;
+    }
+
+    public function setTotal(float $total): void
+    {
+        $this->total = $total;
+    }
+
+    public function getSuscripcion(): Suscripcion
+    {
+        return $this->suscripcion;
+    }
+
+    public function setSuscripcion(Suscripcion $suscripcion): void
+    {
+        $this->suscripcion = $suscripcion;
+    }
+
+    public function getFormaPago(): FormaPago
+    {
+        return $this->formaPago;
+    }
+
+    public function setFormaPago(FormaPago $formaPago): void
+    {
+        $this->formaPago = $formaPago;
+    }
+
+
+
 
 }

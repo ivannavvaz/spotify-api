@@ -157,4 +157,134 @@ class Usuario
         $this->playlist = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    public function getUsername(): string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): void
+    {
+        $this->username = $username;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
+    }
+
+    public function getGenero(): ?string
+    {
+        return $this->genero;
+    }
+
+    public function setGenero(?string $genero): void
+    {
+        $this->genero = $genero;
+    }
+
+    public function getFechaNacimiento(): \DateTime
+    {
+        return $this->fechaNacimiento;
+    }
+
+    public function setFechaNacimiento(\DateTime $fechaNacimiento): void
+    {
+        $this->fechaNacimiento = $fechaNacimiento;
+    }
+
+    public function getPais(): ?string
+    {
+        return $this->pais;
+    }
+
+    public function setPais(?string $pais): void
+    {
+        $this->pais = $pais;
+    }
+
+    public function getCodigoPostal(): ?string
+    {
+        return $this->codigoPostal;
+    }
+
+    public function setCodigoPostal(?string $codigoPostal): void
+    {
+        $this->codigoPostal = $codigoPostal;
+    }
+
+    public function getCancion(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+    {
+        return $this->cancion;
+    }
+
+    public function setCancion(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $cancion): void
+    {
+        $this->cancion = $cancion;
+    }
+
+    public function getPodcast(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+    {
+        return $this->podcast;
+    }
+
+    public function setPodcast(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $podcast): void
+    {
+        $this->podcast = $podcast;
+    }
+
+    public function getAlbum(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+    {
+        return $this->album;
+    }
+
+    public function setAlbum(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $album): void
+    {
+        $this->album = $album;
+    }
+
+    public function getArtista(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+    {
+        return $this->artista;
+    }
+
+    public function setArtista(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $artista): void
+    {
+        $this->artista = $artista;
+    }
+
+    public function getPlaylist(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+    {
+        return $this->playlist;
+    }
+
+    public function setPlaylist(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $playlist): void
+    {
+        $this->playlist = $playlist;
+    }
+    
 }

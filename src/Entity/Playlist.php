@@ -67,4 +67,65 @@ class Playlist
         $this->usuarioSeguidor = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    public function getTitulo(): string
+    {
+        return $this->titulo;
+    }
+
+    public function setTitulo(string $titulo): void
+    {
+        $this->titulo = $titulo;
+    }
+
+    public function getNumeroCanciones(): ?int
+    {
+        return $this->numeroCanciones;
+    }
+
+    public function setNumeroCanciones(?int $numeroCanciones): void
+    {
+        $this->numeroCanciones = $numeroCanciones;
+    }
+
+    public function getFechaCreacion(): ?\DateTime
+    {
+        return $this->fechaCreacion;
+    }
+
+    public function setFechaCreacion(?\DateTime $fechaCreacion): void
+    {
+        $this->fechaCreacion = $fechaCreacion;
+    }
+
+    public function getUsuario(): Usuario
+    {
+        return $this->usuario;
+    }
+
+    public function setUsuario(Usuario $usuario): void
+    {
+        $this->usuario = $usuario;
+    }
+
+    public function getUsuarioSeguidor(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+    {
+        return $this->usuarioSeguidor;
+    }
+
+    public function setUsuarioSeguidor(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $usuarioSeguidor): void
+    {
+        $this->usuarioSeguidor = $usuarioSeguidor;
+    }
+
+
 }

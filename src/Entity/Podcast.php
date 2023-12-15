@@ -64,4 +64,64 @@ class Podcast
         $this->usuario = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    public function getTitulo(): string
+    {
+        return $this->titulo;
+    }
+
+    public function setTitulo(string $titulo): void
+    {
+        $this->titulo = $titulo;
+    }
+
+    public function getImagen(): ?string
+    {
+        return $this->imagen;
+    }
+
+    public function setImagen(?string $imagen): void
+    {
+        $this->imagen = $imagen;
+    }
+
+    public function getDescripcion(): ?string
+    {
+        return $this->descripcion;
+    }
+
+    public function setDescripcion(?string $descripcion): void
+    {
+        $this->descripcion = $descripcion;
+    }
+
+    public function getAnyo(): ?\DateTime
+    {
+        return $this->anyo;
+    }
+
+    public function setAnyo(?\DateTime $anyo): void
+    {
+        $this->anyo = $anyo;
+    }
+
+    public function getUsuario(): \Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection
+    {
+        return $this->usuario;
+    }
+
+    public function setUsuario(\Doctrine\Common\Collections\ArrayCollection|\Doctrine\Common\Collections\Collection $usuario): void
+    {
+        $this->usuario = $usuario;
+    }
+
 }
