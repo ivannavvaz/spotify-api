@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="tarjeta_credito", uniqueConstraints={@ORM\UniqueConstraint(name="numero_tarjeta_UNIQUE", columns={"numero_tarjeta"})}, indexes={@ORM\Index(name="fk_tarjeta_credito_forma_pago1_idx", columns={"forma_pago_id"})})
  * @ORM\Entity
+ *
+ * @Groups({"tarjeta_credito"})
  */
 class TarjetaCredito
 {
@@ -16,6 +18,8 @@ class TarjetaCredito
      * @var string
      *
      * @ORM\Column(name="numero_tarjeta", type="string", length=20, nullable=false)
+     *
+     * @Groups({"tarjeta_credito"})
      */
     private $numeroTarjeta;
 
@@ -23,6 +27,8 @@ class TarjetaCredito
      * @var bool
      *
      * @ORM\Column(name="mes_caducidad", type="boolean", nullable=false)
+     *
+     * @Groups({"tarjeta_credito"})
      */
     private $mesCaducidad;
 
@@ -30,6 +36,8 @@ class TarjetaCredito
      * @var \DateTime
      *
      * @ORM\Column(name="anyo_caducidad", type="date", nullable=false)
+     *
+     * @Groups({"tarjeta_credito"})
      */
     private $anyoCaducidad;
 
@@ -37,6 +45,8 @@ class TarjetaCredito
      * @var int
      *
      * @ORM\Column(name="codigo_seguridad", type="smallint", nullable=false, options={"unsigned"=true})
+     *
+     * @Groups({"tarjeta_credito"})
      */
     private $codigoSeguridad;
 
@@ -49,6 +59,8 @@ class TarjetaCredito
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="forma_pago_id", referencedColumnName="id")
      * })
+     *
+     * @Groups({"tarjeta_credito"})
      */
     private $formaPago;
 

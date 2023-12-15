@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="activa", indexes={@ORM\Index(name="fk_activa_playlist1_idx", columns={"playlist_id"})})
  * @ORM\Entity
+ *
+ * @Groups({"activa"})
  */
 class Activa
 {
@@ -16,6 +18,8 @@ class Activa
      * @var bool
      *
      * @ORM\Column(name="es_compartida", type="boolean", nullable=false)
+     *
+     * @Groups({"activa"})
      */
     private $esCompartida;
 
@@ -28,6 +32,8 @@ class Activa
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="playlist_id", referencedColumnName="id")
      * })
+     *
+     * @Groups({"activa"})
      */
     private $playlist;
 

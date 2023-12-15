@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="podcast", indexes={@ORM\Index(name="anyo_idx", columns={"anyo"}), @ORM\Index(name="titulo_idx", columns={"titulo"})})
  * @ORM\Entity
+ *
+ * @Groups({"podcast"})
  */
 class Podcast
 {
@@ -18,6 +20,8 @@ class Podcast
      * @ORM\Column(name="id", type="integer", nullable=false, options={"unsigned"=true})
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     *
+     * @Groups({"podcast"})
      */
     private $id;
 
@@ -25,6 +29,8 @@ class Podcast
      * @var string
      *
      * @ORM\Column(name="titulo", type="string", length=100, nullable=false)
+     *
+     * @Groups({"podcast"})
      */
     private $titulo;
 
@@ -32,6 +38,8 @@ class Podcast
      * @var string|null
      *
      * @ORM\Column(name="imagen", type="string", length=255, nullable=true)
+     *
+     * @Groups({"podcast"})
      */
     private $imagen;
 
@@ -39,6 +47,8 @@ class Podcast
      * @var string|null
      *
      * @ORM\Column(name="descripcion", type="text", length=65535, nullable=true)
+     *
+     * @Groups({"podcast"})
      */
     private $descripcion;
 
@@ -46,6 +56,8 @@ class Podcast
      * @var \DateTime|null
      *
      * @ORM\Column(name="anyo", type="datetime", nullable=true)
+     *
+     * @Groups({"podcast"})
      */
     private $anyo;
 
@@ -53,6 +65,8 @@ class Podcast
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Usuario", mappedBy="podcast")
+     *
+     * @Groups({"podcast"})
      */
     private $usuario = array();
 

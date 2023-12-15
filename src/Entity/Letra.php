@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="letra", uniqueConstraints={@ORM\UniqueConstraint(name="cancion_id_UNIQUE", columns={"cancion_id"})})
  * @ORM\Entity
+ *
+ * @Groups({"letra"})
  */
 class Letra
 {
@@ -18,6 +20,8 @@ class Letra
      * @ORM\Column(name="id", type="integer", nullable=false, options={"unsigned"=true})
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     *
+     * @Groups({"letra"})
      */
     private $id;
 
@@ -25,6 +29,8 @@ class Letra
      * @var string
      *
      * @ORM\Column(name="ruta", type="string", length=255, nullable=false)
+     *
+     * @Groups({"letra"})
      */
     private $ruta;
 
@@ -35,6 +41,8 @@ class Letra
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="cancion_id", referencedColumnName="id")
      * })
+     *
+     * @Groups({"letra"})
      */
     private $cancion;
 

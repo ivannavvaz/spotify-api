@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="calidad")
  * @ORM\Entity
+ *
+ * @Groups({"calidad"})
  */
 class Calidad
 {
@@ -18,6 +20,8 @@ class Calidad
      * @ORM\Column(name="id", type="integer", nullable=false, options={"unsigned"=true})
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     *
+     * @Groups({"calidad"})
      */
     private $id;
 
@@ -25,6 +29,8 @@ class Calidad
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=15, nullable=false)
+     *
+     * @Groups({"calidad"})
      */
     private $nombre;
 

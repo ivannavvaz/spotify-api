@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="pago", uniqueConstraints={@ORM\UniqueConstraint(name="suscripcion_id_UNIQUE", columns={"suscripcion_id"})}, indexes={@ORM\Index(name="fecha_idx", columns={"fecha"}), @ORM\Index(name="fk_pago_forma_pago1_idx", columns={"forma_pago_id"})})
  * @ORM\Entity
+ *
+ * @Groups({"pago"})
  */
 class Pago
 {
@@ -18,6 +20,8 @@ class Pago
      * @ORM\Column(name="numero_orden", type="integer", nullable=false, options={"unsigned"=true})
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     *
+     * @Groups({"pago"})
      */
     private $numeroOrden;
 
@@ -25,6 +29,8 @@ class Pago
      * @var \DateTime
      *
      * @ORM\Column(name="fecha", type="date", nullable=false)
+     *
+     * @Groups({"pago"})
      */
     private $fecha;
 
@@ -32,6 +38,8 @@ class Pago
      * @var float
      *
      * @ORM\Column(name="total", type="float", precision=10, scale=0, nullable=false)
+     *
+     * @Groups({"pago"})
      */
     private $total;
 
@@ -42,6 +50,8 @@ class Pago
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="suscripcion_id", referencedColumnName="id")
      * })
+     *
+     * @Groups({"pago"})
      */
     private $suscripcion;
 
@@ -52,6 +62,8 @@ class Pago
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="forma_pago_id", referencedColumnName="id")
      * })
+     *
+     * @Groups({"pago"})
      */
     private $formaPago;
 

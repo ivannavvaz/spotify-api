@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="favoritas", indexes={@ORM\Index(name="fk_favoritas_playlist1_idx", columns={"playlist_id"})})
  * @ORM\Entity
+ *
+ * @Groups({"favoritas"})
  */
 class Favoritas
 {
@@ -21,6 +23,8 @@ class Favoritas
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="playlist_id", referencedColumnName="id")
      * })
+     *
+     * @Groups({"favoritas"})
      */
     private $playlist;
 

@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="patrocinada", indexes={@ORM\Index(name="fk_patrocinada_playlist1_idx", columns={"playlist_id"})})
  * @ORM\Entity
+ *
+ * @Groups({"patrocinada"})
  */
 class Patrocinada
 {
@@ -16,6 +18,8 @@ class Patrocinada
      * @var bool
      *
      * @ORM\Column(name="patrocinada", type="boolean", nullable=false, options={"default"="1"})
+     *
+     * @Groups({"patrocinada"})
      */
     private $patrocinada = true;
 
@@ -23,6 +27,8 @@ class Patrocinada
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_inicio", type="date", nullable=false)
+     *
+     * @Groups({"patrocinada"})
      */
     private $fechaInicio;
 
@@ -30,6 +36,8 @@ class Patrocinada
      * @var \DateTime|null
      *
      * @ORM\Column(name="fecha_fin", type="date", nullable=true)
+     *
+     * @Groups({"patrocinada"})
      */
     private $fechaFin;
 
@@ -42,6 +50,8 @@ class Patrocinada
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="playlist_id", referencedColumnName="id")
      * })
+     *
+     * @Groups({"patrocinada"})
      */
     private $playlist;
 

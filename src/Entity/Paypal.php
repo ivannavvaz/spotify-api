@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="paypal", uniqueConstraints={@ORM\UniqueConstraint(name="username_paypal_UNIQUE", columns={"username_paypal"})}, indexes={@ORM\Index(name="fk_paypal_forma_pago1_idx", columns={"forma_pago_id"})})
  * @ORM\Entity
+ *
+ * @Groups({"paypal"})
  */
 class Paypal
 {
@@ -16,6 +18,8 @@ class Paypal
      * @var string
      *
      * @ORM\Column(name="username_paypal", type="string", length=150, nullable=false)
+     *
+     * @Groups({"paypal"})
      */
     private $usernamePaypal;
 
@@ -28,6 +32,8 @@ class Paypal
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="forma_pago_id", referencedColumnName="id")
      * })
+     *
+     * @Groups({"paypal"})
      */
     private $formaPago;
 

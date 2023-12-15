@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="tipo_descarga", indexes={@ORM\Index(name="nombre_idx", columns={"nombre"})})
  * @ORM\Entity
+ *
+ * @Groups({"tipo_descarga"})
  */
 class TipoDescarga
 {
@@ -18,6 +20,8 @@ class TipoDescarga
      * @ORM\Column(name="id", type="integer", nullable=false, options={"unsigned"=true})
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     *
+     * @Groups({"tipo_descarga"})
      */
     private $id;
 
@@ -25,6 +29,8 @@ class TipoDescarga
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=15, nullable=false)
+     *
+     * @Groups({"tipo_descarga"})
      */
     private $nombre;
 
