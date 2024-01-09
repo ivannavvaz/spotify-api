@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Free
@@ -10,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="free", indexes={@ORM\Index(name="fecha_revision_idx", columns={"fecha_revision"}), @ORM\Index(name="fk_free_usuario1_idx", columns={"usuario_id"})})
  * @ORM\Entity
  *
- * @Groups({"free"})
  */
 class Free
 {

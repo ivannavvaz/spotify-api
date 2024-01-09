@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Premium
@@ -10,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="premium", indexes={@ORM\Index(name="fecha_renovacion_idx", columns={"fecha_renovacion"}), @ORM\Index(name="fk_premium_usuario1_idx", columns={"usuario_id"})})
  * @ORM\Entity
  *
- * @Groups({"premium"})
  */
 class Premium
 {

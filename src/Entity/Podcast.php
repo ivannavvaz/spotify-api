@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Podcast
@@ -10,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="podcast", indexes={@ORM\Index(name="anyo_idx", columns={"anyo"}), @ORM\Index(name="titulo_idx", columns={"titulo"})})
  * @ORM\Entity
  *
- * @Groups({"podcast"})
  */
 class Podcast
 {
@@ -21,7 +21,7 @@ class Podcast
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      *
-     * @Groups({"podcast"})
+     * @Groups({"podcast", "podcast_for_user"})
      */
     private $id;
 
@@ -39,7 +39,7 @@ class Podcast
      *
      * @ORM\Column(name="imagen", type="string", length=255, nullable=true)
      *
-     * @Groups({"podcast"})
+     * @Groups({"podcast", "podcast_for_user"})
      */
     private $imagen;
 
@@ -57,7 +57,7 @@ class Podcast
      *
      * @ORM\Column(name="anyo", type="datetime", nullable=true)
      *
-     * @Groups({"podcast"})
+     * @Groups({"podcast", "podcast_for_user"})
      */
     private $anyo;
 
