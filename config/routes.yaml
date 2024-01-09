@@ -27,10 +27,10 @@ usuario:
 #  controller: App\Controller\ConfiguracionController::configuraciones
 #  methods: GET
 
-#configuracion:
-#  path: /configuracion
-#  controller: App\Controller\ConfiguracionController::configuracion
-#  methods: GET|PUT
+configuracionUsuario:
+  path: /usuarios/{usuario_id}/configuracion
+  controller: App\Controller\ConfiguracionController::configuracionUsuario
+  methods: GET|PUT
 
 podcasts:
   path: /podcasts
