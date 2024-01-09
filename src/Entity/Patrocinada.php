@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Patrocinada
@@ -10,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="patrocinada", indexes={@ORM\Index(name="fk_patrocinada_playlist1_idx", columns={"playlist_id"})})
  * @ORM\Entity
  *
- * @Groups({"patrocinada"})
  */
 class Patrocinada
 {

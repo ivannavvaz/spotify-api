@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Artista
@@ -10,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="artista", indexes={@ORM\Index(name="nombre_idx", columns={"nombre"})})
  * @ORM\Entity
  *
- * @Groups({"artista"})
  */
 class Artista
 {
@@ -21,7 +21,7 @@ class Artista
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      *
-     * Groups({"artista"})
+     * Groups({"artista", "artista_for_user"})
      */
     private $id;
 
@@ -30,7 +30,7 @@ class Artista
      *
      * @ORM\Column(name="nombre", type="string", length=150, nullable=false)
      *
-     * Groups({"artista"})
+     * Groups({"artista", "artista_for_user"})
      */
     private $nombre;
 
@@ -39,7 +39,7 @@ class Artista
      *
      * @ORM\Column(name="imagen", type="string", length=255, nullable=true)
      *
-     * Groups({"artista"})
+     * Groups({"artista", "artista_for_user"})
      */
     private $imagen;
 

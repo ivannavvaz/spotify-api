@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Eliminada
@@ -10,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="eliminada", indexes={@ORM\Index(name="fk_eliminada_playlist1_idx", columns={"playlist_id"})})
  * @ORM\Entity
  *
- * @Groups({"eliminada"})
  */
 class Eliminada
 {

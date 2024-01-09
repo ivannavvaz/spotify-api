@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Capitulo
@@ -10,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="capitulo", indexes={@ORM\Index(name="fk_capitulo_podcast1_idx", columns={"podcast_id"}), @ORM\Index(name="fecha", columns={"fecha"}), @ORM\Index(name="titulo", columns={"titulo"})})
  * @ORM\Entity
  *
- * @Groups({"capitulo"})
  */
 class Capitulo
 {

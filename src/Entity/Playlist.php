@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Playlist
@@ -10,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="playlist", indexes={@ORM\Index(name="fk_playlist_usuario1_idx", columns={"usuario_id"})})
  * @ORM\Entity
  *
- * @Groups({"playlist"})
  */
 class Playlist
 {
@@ -21,7 +21,7 @@ class Playlist
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      *
-     * @Groups({"playlist"})
+     * @Groups({"playlist", "playlist_for_user"})
      */
     private $id;
 
@@ -30,7 +30,7 @@ class Playlist
      *
      * @ORM\Column(name="titulo", type="string", length=150, nullable=false)
      *
-     * @Groups({"playlist"})
+     * @Groups({"playlist", "playlist_for_user"})
      */
     private $titulo;
 
@@ -48,7 +48,7 @@ class Playlist
      *
      * @ORM\Column(name="fecha_creacion", type="date", nullable=true)
      *
-     * @Groups({"playlist"})
+     * @Groups({"playlist", "playlist_for_user"})
      */
     private $fechaCreacion;
 

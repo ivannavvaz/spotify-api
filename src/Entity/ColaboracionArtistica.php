@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * ColaboracionArtistica
@@ -10,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="colaboracion_artistica", indexes={@ORM\Index(name="fk_colaboracion_artistica_cancion1_idx", columns={"cancion_id"}), @ORM\Index(name="fk_colaboracion_artistica_artista2_idx", columns={"artista_colaborador_id"}), @ORM\Index(name="fk_colaboracion_artistica_artista1_idx", columns={"artista_id"})})
  * @ORM\Entity
  *
- * @Groups({"colaboracion_artistica"})
  */
 class ColaboracionArtistica
 {
