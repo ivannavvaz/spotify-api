@@ -21,7 +21,7 @@ class Idioma
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      *
-     * @Groups({"idioma"})
+     * @Groups({"idioma", "idioma_for_configuracion"})
      */
     private $id;
 
@@ -30,7 +30,7 @@ class Idioma
      *
      * @ORM\Column(name="nombre", type="string", length=15, nullable=false)
      *
-     * @Groups({"idioma"})
+     * @Groups({"idioma", "idioma_for_configuracion"})
      */
     private $nombre;
 

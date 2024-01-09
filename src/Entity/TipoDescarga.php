@@ -21,7 +21,7 @@ class TipoDescarga
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      *
-     * @Groups({"tipo_descarga"})
+     * @Groups({"tipo_descarga", "tipoDescarga_for_configuracion"})
      */
     private $id;
 
@@ -30,7 +30,7 @@ class TipoDescarga
      *
      * @ORM\Column(name="nombre", type="string", length=15, nullable=false)
      *
-     * @Groups({"tipo_descarga"})
+     * @Groups({"tipo_descarga", "tipoDescarga_for_configuracion"})
      */
     private $nombre;
 

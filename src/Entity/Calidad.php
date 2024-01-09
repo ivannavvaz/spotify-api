@@ -21,7 +21,7 @@ class Calidad
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      *
-     * @Groups({"calidad"})
+     * @Groups({"calidad", "calidad_for_configuracion"})
      */
     private $id;
 
@@ -30,7 +30,7 @@ class Calidad
      *
      * @ORM\Column(name="nombre", type="string", length=15, nullable=false)
      *
-     * @Groups({"calidad"})
+     * @Groups({"calidad", "calidad_for_configuracion"})
      */
     private $nombre;
 
