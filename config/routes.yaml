@@ -64,12 +64,12 @@ capituloPodcast:
 
 suscripcionesUsuario:
   path: /usuario/{id}/suscripciones
-  controler: App\Controller\CapituloController::suscripcionesUsuario
+  controller: App\Controller\CapituloController::suscripcionesUsuario
   methods: GET
 
 suscripcionUsuario:
   path: /usuario/{id}/suscripcion/{id}
-  controler: App\Controller\CapituloController::suscripcionUsuario
+  controller: App\Controller\CapituloController::suscripcionUsuario
   methods: GET
 
 playlists:
