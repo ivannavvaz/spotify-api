@@ -18,7 +18,7 @@ class UsuarioController extends AbstractController
                 ->getRepository(Usuario::class)
                 ->findAll();
 
-            $usuario = $serializer->serialize($usuario, 'json', ['groups' => ['usuario' ,'podcast_for_user', 'album_for_user', 'artista_for_user', 'playlist_for_user']]);
+            $usuario = $serializer->serialize($usuario, 'json', ['groups' => ['usuario' ,'podcast_for_user', 'album_for_user', 'artista_for_user', 'playlist_for_user', 'cancion_for_user']]);
 
             return new Response($usuario);
         }
