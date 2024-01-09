@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="premium", indexes={@ORM\Index(name="fecha_renovacion_idx", columns={"fecha_renovacion"}), @ORM\Index(name="fk_premium_usuario1_idx", columns={"usuario_id"})})
  * @ORM\Entity
+ *
+ * @Groups({"premium"})
  */
 class Premium
 {
@@ -16,6 +18,8 @@ class Premium
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_renovacion", type="date", nullable=false)
+     *
+     * @Groups({"premium"})
      */
     private $fechaRenovacion;
 
@@ -28,6 +32,8 @@ class Premium
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
      * })
+     *
+     * @Groups({"premium"})
      */
     private $usuario;
 
@@ -35,6 +41,8 @@ class Premium
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Cancion", mappedBy="premiumUsuario")
+     *
+     * @Groups({"premium"})
      */
     private $cancion = array();
 

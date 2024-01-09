@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="colaboracion_artistica", indexes={@ORM\Index(name="fk_colaboracion_artistica_cancion1_idx", columns={"cancion_id"}), @ORM\Index(name="fk_colaboracion_artistica_artista2_idx", columns={"artista_colaborador_id"}), @ORM\Index(name="fk_colaboracion_artistica_artista1_idx", columns={"artista_id"})})
  * @ORM\Entity
+ *
+ * @Groups({"colaboracion_artistica"})
  */
 class ColaboracionArtistica
 {
@@ -21,6 +23,8 @@ class ColaboracionArtistica
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="cancion_id", referencedColumnName="id")
      * })
+     *
+     * @Groups({"colaboracion_artistica"})
      */
     private $cancion;
 
@@ -33,6 +37,8 @@ class ColaboracionArtistica
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="artista_colaborador_id", referencedColumnName="id")
      * })
+     *
+     * @Groups({"colaboracion_artistica"})
      */
     private $artistaColaborador;
 
@@ -45,6 +51,8 @@ class ColaboracionArtistica
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="artista_id", referencedColumnName="id")
      * })
+     *
+     * @Groups({"colaboracion_artistica"})
      */
     private $artista;
 

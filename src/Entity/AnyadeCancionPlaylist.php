@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="anyade_cancion_playlist", indexes={@ORM\Index(name="fk_anyade_cancion_playlist_playlist1_idx", columns={"playlist_id"}), @ORM\Index(name="fecha_anyadida", columns={"fecha_anyadida"}), @ORM\Index(name="fk_anyade_cancion_playlist_cancion1_idx", columns={"cancion_id"}), @ORM\Index(name="fk_anyade_cancion_playlist_usuario1_idx", columns={"usuario_id"})})
  * @ORM\Entity
+ *
+ * @Groups({"anyade_cancion_playlist"})
  */
 class AnyadeCancionPlaylist
 {
@@ -16,6 +18,8 @@ class AnyadeCancionPlaylist
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_anyadida", type="datetime", nullable=false)
+     *
+     * @Groups({"anyade_cancion_playlist"})
      */
     private $fechaAnyadida;
 
@@ -28,6 +32,8 @@ class AnyadeCancionPlaylist
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
      * })
+     *
+     * @Groups({"anyade_cancion_playlist"})
      */
     private $usuario;
 
@@ -40,6 +46,8 @@ class AnyadeCancionPlaylist
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="playlist_id", referencedColumnName="id")
      * })
+     *
+     * @Groups({"anyade_cancion_playlist"})
      */
     private $playlist;
 
@@ -52,6 +60,8 @@ class AnyadeCancionPlaylist
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="cancion_id", referencedColumnName="id")
      * })
+     *
+     * @Groups({"anyade_cancion_playlist"})
      */
     private $cancion;
 

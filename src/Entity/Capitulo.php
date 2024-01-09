@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="capitulo", indexes={@ORM\Index(name="fk_capitulo_podcast1_idx", columns={"podcast_id"}), @ORM\Index(name="fecha", columns={"fecha"}), @ORM\Index(name="titulo", columns={"titulo"})})
  * @ORM\Entity
+ *
+ * @Groups({"capitulo"})
  */
 class Capitulo
 {
@@ -18,6 +20,8 @@ class Capitulo
      * @ORM\Column(name="id", type="integer", nullable=false, options={"unsigned"=true})
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     *
+     * @Groups({"capitulo"})
      */
     private $id;
 
@@ -25,6 +29,8 @@ class Capitulo
      * @var string
      *
      * @ORM\Column(name="titulo", type="string", length=100, nullable=false)
+     *
+     * @Groups({"capitulo"})
      */
     private $titulo;
 
@@ -32,6 +38,8 @@ class Capitulo
      * @var string|null
      *
      * @ORM\Column(name="descripcion", type="text", length=65535, nullable=true)
+     *
+     * @Groups({"capitulo"})
      */
     private $descripcion;
 
@@ -39,6 +47,8 @@ class Capitulo
      * @var int
      *
      * @ORM\Column(name="duracion", type="integer", nullable=false, options={"unsigned"=true})
+     *
+     * @Groups({"capitulo"})
      */
     private $duracion;
 
@@ -46,6 +56,8 @@ class Capitulo
      * @var \DateTime
      *
      * @ORM\Column(name="fecha", type="date", nullable=false)
+     *
+     * @Groups({"capitulo"})
      */
     private $fecha;
 
@@ -53,6 +65,8 @@ class Capitulo
      * @var int
      *
      * @ORM\Column(name="numero_reproducciones", type="integer", nullable=false, options={"unsigned"=true})
+     *
+     * @Groups({"capitulo"})
      */
     private $numeroReproducciones;
 
@@ -63,6 +77,8 @@ class Capitulo
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="podcast_id", referencedColumnName="id")
      * })
+     *
+     * @Groups({"capitulo"})
      */
     private $podcast;
 

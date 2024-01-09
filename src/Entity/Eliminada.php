@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="eliminada", indexes={@ORM\Index(name="fk_eliminada_playlist1_idx", columns={"playlist_id"})})
  * @ORM\Entity
+ *
+ * @Groups({"eliminada"})
  */
 class Eliminada
 {
@@ -16,6 +18,8 @@ class Eliminada
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_eliminacion", type="date", nullable=false)
+     *
+     * @Groups({"eliminada"})
      */
     private $fechaEliminacion;
 
@@ -28,6 +32,8 @@ class Eliminada
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="playlist_id", referencedColumnName="id")
      * })
+     *
+     * @Groups({"eliminada"})
      */
     private $playlist;
 

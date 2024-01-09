@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="suscripcion", indexes={@ORM\Index(name="fk_suscripcion_premium1_idx", columns={"premium_usuario_id"}), @ORM\Index(name="fecha_fin_idx", columns={"fecha_fin"}), @ORM\Index(name="fecha_inicio_idx", columns={"fecha_inicio"})})
  * @ORM\Entity
+ *
+ * @Groups({"suscripcion"})
  */
 class Suscripcion
 {
@@ -18,6 +20,8 @@ class Suscripcion
      * @ORM\Column(name="id", type="integer", nullable=false, options={"unsigned"=true})
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     *
+     * @Groups({"suscripcion"})
      */
     private $id;
 
@@ -25,6 +29,8 @@ class Suscripcion
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_inicio", type="date", nullable=false)
+     *
+     * @Groups({"suscripcion"})
      */
     private $fechaInicio;
 
@@ -32,6 +38,8 @@ class Suscripcion
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_fin", type="date", nullable=false)
+     *
+     * @Groups({"suscripcion"})
      */
     private $fechaFin;
 
@@ -42,6 +50,8 @@ class Suscripcion
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="premium_usuario_id", referencedColumnName="usuario_id")
      * })
+     *
+     * @Groups({"suscripcion"})
      */
     private $premiumUsuario;
 
