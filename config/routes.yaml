@@ -48,27 +48,27 @@ usuarioPodcasts:
   methods: GET
 
 usuarioPodcast:
-  path: /usuario/{id}/podcast/{id
+  path: /usuario/{usuario_id}/podcast/{id
   controller: App\Controller\PodcastController::usuarioPodcast
   methods: POST|DELETE
 
 capitulosPodcast:
-  path: /podcast/{id}/capitulos
+  path: /podcast/{podcast_id}/capitulos
   controller: App\Controller\CapituloController::capitulosPodcast
   methods: GET
 
 capituloPodcast:
-  path: /podcast/{id}/capitulo/{id}
+  path: /podcast/{podcast_id}/capitulo/{capitulo_id}
   controller: App\Controller\CapituloController::capituloPodcast
   methods: GET
 
 suscripcionesUsuario:
-  path: /usuario/{id}/suscripciones
+  path: /usuario/{usuario_id}/suscripciones
   controller: App\Controller\CapituloController::suscripcionesUsuario
   methods: GET
 
 suscripcionUsuario:
-  path: /usuario/{id}/suscripcion/{id}
+  path: /usuario/{usuario_id}/suscripcion/{suscripcion_id}
   controller: App\Controller\CapituloController::suscripcionUsuario
   methods: GET
 
@@ -83,12 +83,12 @@ playlist:
   methods: GET
 
 usuarioPlaylists:
-  path: /usuario/{id}/playlists
+  path: /usuario/{usuario_id}/playlists
   controller: App\Controller\PlaylistController::playlistsUsuario
   methods: GET
 
 usuarioPlaylist:
-  path: /usuario/{id}/playlist/{id}
+  path: /usuario/{usuario_id}/playlist/{playlist_id}
   controller: App\Controller\PlaylistController::playlistUsuario
   methods: GET|PUT|DELETE
 
@@ -103,12 +103,12 @@ cancion:
   methods: GET
 
 cancionesPlaylist:
-  path: /playlist/{id}/canciones
+  path: /playlist/{playlist_id}/canciones
   controller: App\Controller\CancionController::cancionesPlaylist
   methods: GET
 
 cancionPlaylist:
-  path: /playlist/{id}/cancion/{id}
+  path: /playlist/{playlist_id}/cancion/{cancion_id}
   controller: App\Controller\CancionController::cancionPlaylist
   methods: POST|DELETE
 
@@ -118,12 +118,12 @@ artistas:
   methods: GET
 
 artistaAlbums:
-  path: /artista/{id}/albums
+  path: /artista/{artista_id}/albums
   controller: App\Controller\ArtistaController::artistaAlbums
   methods: GET
 
 artistaAlbum:
-  path: /artista/{id}/album/{id}
+  path: /artista/{artista_id}/album/{album_id}
   controller: App\Controller\ArtistaController::artistaAlbum
   methods: GET
 
@@ -138,7 +138,7 @@ album:
   methods: GET
 
 albumCanciones:
-  path: /album/{id}/canciones
+  path: /album/{album_id}/canciones
   controller: App\Controller\AlbumController::albumCanciones
   methods: GET
 
