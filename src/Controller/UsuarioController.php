@@ -14,31 +14,31 @@ class UsuarioController extends AbstractController
     public function usuarios(Request $request, SerializerInterface $serializer)
     {
         if ($request->isMethod('GET')) {
-            $usuario = $this->getDoctrine()
+            $usuarios = $this->getDoctrine()
                 ->getRepository(Usuario::class)
                 ->findAll();
 
-            $usuario = $serializer->serialize($usuario, 'json', ['groups' => ['usuario' ,'podcast_for_user', 'album_for_user', 'artista_for_user', 'playlist_for_user', 'cancion_for_user']]);
+            $usuarios = $serializer->serialize($usuarios, 'json', ['groups' => ['usuarios']]);
 
-            return new Response($usuario);
+            return new Response($usuarios);
         }
 
         if ($request->isMethod('POST')) {
 
             $data = $request->getContent();
-            $usuario = $serializer->deserialize($data, Usuario::class, 'json');
+            $usuarios = $serializer->deserialize($data, Usuario::class, 'json');
 
             $this->getDoctrine()
                 ->getManager()
-                ->persist($usuario);
+                ->persist($usuarios);
 
             $this->getDoctrine()
                 ->getManager()
                 ->flush();
 
-            $usuario = $serializer->serialize($usuario, 'json', ['groups' => ['usuario']]);
+            $usuarios = $serializer->serialize($usuarios, 'json', ['groups' => ['usuarios']]);
 
-            return new Response($usuario);
+            return new Response($usuarios);
 
         }
 

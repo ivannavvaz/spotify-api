@@ -39,7 +39,7 @@ class Playlist
      *
      * @ORM\Column(name="numero_canciones", type="integer", nullable=true, options={"unsigned"=true})
      *
-     * @Groups({"playlist"})
+     * @Groups({"playlist, playlist_for_user"})
      */
     private $numeroCanciones;
 
