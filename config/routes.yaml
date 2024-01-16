@@ -149,7 +149,7 @@ calidades:
 
 Idiomas:
   path: /idiomas
-  controller: App\Controller\IdiomaController::Idiomas
+  controller: App\Controller\IdiomaController::idiomas
   methods: GET
 
 #tiposDescargas:
