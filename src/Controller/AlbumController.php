@@ -44,7 +44,7 @@ class AlbumController extends AbstractController
             $album = $serializer->serialize(
                 $album,
                 'json',
-                ['groups' => ['album']]
+                ['groups' => ['album', "artista_for_album"]]
             );
 
             return new Response($album);
