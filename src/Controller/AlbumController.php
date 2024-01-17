@@ -2,13 +2,79 @@
 
 namespace App\Controller;
 
+use App\Entity\Album;
+use App\Entity\Cancion;
+use App\Entity\Idioma;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class AlbumController extends AbstractController
 {
-    public function index()
+    public function albums(Request $request, SerializerInterface $serializer)
     {
-        return new Response('Hello!');
+        if ($request->isMethod('GET')) {
+            $albums = $this->getDoctrine()
+                ->getRepository(Album::class)
+                ->findAll();
+
+            $albums = $serializer->serialize(
+                $albums,
+                'json',
+                ['groups' => ['album', "artista_for_album"]]
+            );
+
+            return new Response($albums);
+        }
+
+        return new JsonResponse(['msg' => $request->getMethod() . ' not allowed']);
+    }
+
+    public function album(Request $request, SerializerInterface $serializer)
+    {
+        $id = $request->get('id');
+
+        if ($request->isMethod('GET')) {
+            $album = $this->getDoctrine()
+                ->getRepository(Album::class)
+                ->findOneBy(['id' => $id]);
+
+            $album = $serializer->serialize(
+                $album,
+                'json',
+                ['groups' => ['album']]
+            );
+
+            return new Response($album);
+        }
+
+        return new JsonResponse(['msg' => $request->getMethod() . ' not allowed']);
+    }
+
+    public function albumCanciones(Request $request, SerializerInterface $serializer)
+    {
+        $id = $request->get('album_id');
+
+        if ($request->isMethod('GET')) {
+            $album = $this->getDoctrine()
+                ->getRepository(Album::class)
+                ->findOneBy(['id' => $id]);
+
+            $canciones = $this->getDoctrine()
+                ->getRepository(Cancion::class)
+                ->findBy(['album' => $album]);
+
+            $canciones = $serializer->serialize(
+                $canciones,
+                'json',
+                ['groups' => ['cancion_for_album']]
+            );
+
+            return new Response($canciones);
+        }
+
+        return new JsonResponse(['msg' => $request->getMethod() . ' not allowed']);
     }
 }

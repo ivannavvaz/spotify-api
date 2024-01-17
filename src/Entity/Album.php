@@ -88,7 +88,7 @@ class Album
      *   @ORM\JoinColumn(name="artista_id", referencedColumnName="id")
      * })
      *
-     * @Groups({"album", "album_for_user"})
+     * @Groups({"album_for_user"})
      */
     private $artista;
 
@@ -97,7 +97,7 @@ class Album
      *
      * @ORM\ManyToMany(targetEntity="Usuario", mappedBy="album")
      *
-     * @Groups({"album"})
+     *
      */
     private $usuario = array();
 
