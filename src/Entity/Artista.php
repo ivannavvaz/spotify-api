@@ -21,7 +21,7 @@ class Artista
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      *
-     * Groups({"artista", "artista_for_user"})
+     * @Groups({"artista", "artista_for_user", "artista_for_album"})
      */
     private $id;
 
@@ -30,7 +30,7 @@ class Artista
      *
      * @ORM\Column(name="nombre", type="string", length=150, nullable=false)
      *
-     * Groups({"artista", "artista_for_user"})
+     * @Groups({"artista", "artista_for_user", "artista_for_album"})
      */
     private $nombre;
 
@@ -39,7 +39,7 @@ class Artista
      *
      * @ORM\Column(name="imagen", type="string", length=255, nullable=true)
      *
-     * Groups({"artista", "artista_for_user"})
+     * @Groups({"artista", "artista_for_user", "artista_for_album"})
      */
     private $imagen;
 
@@ -48,7 +48,7 @@ class Artista
      *
      * @ORM\ManyToMany(targetEntity="Usuario", mappedBy="artista")
      *
-     * Groups({"artista"})
+     *
      */
     private $usuario = array();
 
