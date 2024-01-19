@@ -61,9 +61,17 @@ class AnyadeCancionPlaylist
      *   @ORM\JoinColumn(name="cancion_id", referencedColumnName="id")
      * })
      *
-     * @Groups({"anyade_cancion_playlist"})
+     * @Groups({"anyade_cancion_playlist", "canciones_de_playlist"})
      */
     private $cancion;
+
+    public function __construct($fechaAnyadida, $usuario, $playlist, $cancion)
+    {
+        $this->fechaAnyadida = $fechaAnyadida;
+        $this->usuario = $usuario;
+        $this->playlist = $playlist;
+        $this->cancion = $cancion;
+    }
 
     public function getFechaAnyadida(): \DateTime
     {
