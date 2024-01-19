@@ -101,7 +101,7 @@ class Usuario
      *   }
      * )
      *
-     * @Groups({"usuario", "usuario_for_configuracion"})
+     * @Groups({"usuario"})
      *
      */
     private $cancion = array();
