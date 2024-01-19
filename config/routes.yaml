@@ -98,7 +98,7 @@ canciones:
   methods: GET
 
 cancion:
-  path: /canciones/{id}
+  path: /cancion/{id}
   controller: App\Controller\CancionController::cancion
   methods: GET
 
