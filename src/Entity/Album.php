@@ -22,7 +22,7 @@ class Album
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      *
-     * @Groups({"album", "album_for_user", "album_for_artista"})
+     * @Groups({"album", "album_for_user", "album_for_artista", "album_for_cancion"})
      */
     private $id;
 
@@ -31,7 +31,7 @@ class Album
      *
      * @ORM\Column(name="titulo", type="string", length=100, nullable=false)
      *
-     * @Groups({"album", "album_for_user", "album_for_artista"})
+     * @Groups({"album", "album_for_user", "album_for_artista", "album_for_cancion"})
      */
     private $titulo;
 
@@ -40,7 +40,7 @@ class Album
      *
      * @ORM\Column(name="imagen", type="string", length=255, nullable=false)
      *
-     * @Groups({"album", "album_for_user", "album_for_artista"})
+     * @Groups({"album", "album_for_user", "album_for_artista", "album_for_cancion"})
      */
     private $imagen;
 
@@ -49,7 +49,7 @@ class Album
      *
      * @ORM\Column(name="patrocinado", type="boolean", nullable=false)
      *
-     * @Groups({"album", "album_for_user", "album_for_artista"})
+     * @Groups({"album", "album_for_user", "album_for_artista", "album_for_cancion"})
      */
     private $patrocinado;
 
@@ -58,7 +58,7 @@ class Album
      *
      * @ORM\Column(name="fecha_inicio_patrocinio", type="date", nullable=true)
      *
-     * @Groups({"album", "album_for_user", "album_for_artista"})
+     * @Groups({"album", "album_for_user", "album_for_artista", "album_for_cancion"})
      */
     private $fechaInicioPatrocinio;
 
@@ -67,7 +67,7 @@ class Album
      *
      * @ORM\Column(name="fecha_fin_patrocinio", type="date", nullable=true)
      *
-     * @Groups({"album", "album_for_user", "album_for_artista"})
+     * @Groups({"album", "album_for_user", "album_for_artista", "album_for_cancion"})
      */
     private $fechaFinPatrocinio;
 
@@ -76,7 +76,7 @@ class Album
      *
      * @ORM\Column(name="anyo", type="datetime", nullable=true)
      *
-     * @Groups({"album", "album_for_user", "album_for_artista"})
+     * @Groups({"album", "album_for_user", "album_for_artista", "album_for_cancion"})
      */
     private $anyo;
 
@@ -88,7 +88,7 @@ class Album
      *   @ORM\JoinColumn(name="artista_id", referencedColumnName="id")
      * })
      *
-     * @Groups({"album", "album_for_user"})
+     * @Groups({"album", "album_for_user", "album_for_cancion"})
      */
     private $artista;
 

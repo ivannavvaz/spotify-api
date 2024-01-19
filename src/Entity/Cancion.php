@@ -78,7 +78,7 @@ class Cancion
      *
      * @ORM\ManyToMany(targetEntity="Usuario", mappedBy="cancion")
      *
-     * @Groups({"cancion"})
+     *
      */
     private $usuario = array();
 
@@ -95,7 +95,7 @@ class Cancion
      *   }
      * )
      *
-     * @Groups({"cancion"})
+     *
      */
     private $premiumUsuario = array();
 
