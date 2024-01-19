@@ -7,10 +7,12 @@ usuarios:
   controller: App\Controller\UsuarioController::usuarios
   methods: GET|POST
 
+# DELETE no se puede hacer en usuarios porque no se puede borrar en cascada ni tenemos booleano de eliminado
+
 usuario:
   path: /usuario/{id}
   controller: App\Controller\UsuarioController::usuario
-  methods: GET|PUT|DELETE
+  methods: GET|PUT
 
 #seguidoresUsuario:
 #  path: /usuario/{id}/seguidos
