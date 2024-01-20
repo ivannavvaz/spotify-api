@@ -78,7 +78,7 @@ class Capitulo
      *   @ORM\JoinColumn(name="podcast_id", referencedColumnName="id")
      * })
      *
-     * @Groups({"capitulo"})
+     * @Groups({""})
      */
     private $podcast;
 
