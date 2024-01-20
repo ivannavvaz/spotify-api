@@ -69,7 +69,7 @@ class Playlist
      *
      * @ORM\ManyToMany(targetEntity="Usuario", mappedBy="playlist")
      *
-     * @Groups({"playlist"})
+     * @Groups({""})
      */
     private $usuarioSeguidor = array();
 
