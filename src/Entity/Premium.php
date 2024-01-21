@@ -19,7 +19,7 @@ class Premium
      *
      * @ORM\Column(name="fecha_renovacion", type="date", nullable=false)
      *
-     * @Groups({"premium"})
+     * @Groups({"premium", "premium_for_suscripcion"})
      */
     private $fechaRenovacion;
 
@@ -33,7 +33,7 @@ class Premium
      *   @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
      * })
      *
-     * @Groups({"premium"})
+     * @Groups({"premium", "premium_for_suscripcion"})
      */
     private $usuario;
 
