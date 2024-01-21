@@ -66,18 +66,18 @@ capituloPodcast:
 
 suscripcionesUsuario:
   path: /usuario/{usuario_id}/suscripciones
-  controller: App\Controller\CapituloController::suscripcionesUsuario
+  controller: App\Controller\SuscripcionController::suscripcionesUsuario
   methods: GET
 
 suscripcionUsuario:
   path: /usuario/{usuario_id}/suscripcion/{suscripcion_id}
-  controller: App\Controller\CapituloController::suscripcionUsuario
+  controller: App\Controller\SuscripcionController::suscripcionUsuario
   methods: GET
 
 playlists:
   path: /playlist
   controller: App\Controller\PlaylistController::playlists
-  methods: GET|POST
+  methods: GET
 
 playlist:
   path: /playlist/{id}
@@ -87,7 +87,7 @@ playlist:
 usuarioPlaylists:
   path: /usuario/{usuario_id}/playlists
   controller: App\Controller\PlaylistController::playlistsUsuario
-  methods: GET
+  methods: GET|POST
 
 usuarioPlaylist:
   path: /usuario/{usuario_id}/playlist/{playlist_id}

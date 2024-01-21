@@ -44,38 +44,6 @@ class PlaylistController extends AbstractController
             return new Response($playlists);
         }
 
-        if ($request->isMethod("POST")) {
-
-            $titulo = $request->get("titulo");
-            $nCanciones = $request->get("numero_canciones");
-            $usrId = $request->get("usuario_id");
-
-            $usuario = $this->getDoctrine()
-            ->getRepository(Usuario::class)
-            ->findOneBy(['id' => $usrId]);
-
-            $playlist = new Playlist();
-
-            $playlist->setTitulo($titulo);
-            $playlist->setNumeroCanciones($nCanciones);
-            $playlist->setFechaCreacion(new DateTime('now'));
-            $playlist->setUsuario($usuario);
-
-            $playlistActiva = new Activa();
-            $playlistActiva->setEsCompartida(0);
-            $playlistActiva->setPlaylist($playlist);
-
-            $this->getDoctrine()->getManager()->persist($playlist);
-            $this->getDoctrine()->getManager()->persist($playlistActiva);
-            $this->getDoctrine()->getManager()->flush();
-
-            $playlists = $serializer->serialize(
-                $playlist, 
-                'json', 
-                ['groups' => 'playlist', 'usuario_for_playlist']);
-
-                return new Response($playlists);
-        }
 
         return new JsonResponse(['msg' => $request->getMethod() . ' not allowed']);
     }
@@ -117,6 +85,10 @@ class PlaylistController extends AbstractController
     public function playlistsUsuario(Request $request, SerializerInterface $serializer)
     {
         $id = $request->get('usuario_id');
+
+        $usuario = $this->getDoctrine()
+        ->getRepository(Usuario::class)
+        ->findOneBy(['id' => $id]);
 
         $playlists = null;
 
@@ -165,6 +137,34 @@ class PlaylistController extends AbstractController
                 'groups' => ['playlist', 'usuario_for_playlist']]);
 
             return new Response($playlists);
+        }
+
+        if ($request->isMethod("POST")) {
+
+            $titulo = $request->get("titulo");
+            $nCanciones = $request->get("numero_canciones");
+
+            $playlist = new Playlist();
+
+            $playlist->setTitulo($titulo);
+            $playlist->setNumeroCanciones($nCanciones);
+            $playlist->setFechaCreacion(new DateTime('now'));
+            $playlist->setUsuario($usuario);
+
+            $playlistActiva = new Activa();
+            $playlistActiva->setEsCompartida(0);
+            $playlistActiva->setPlaylist($playlist);
+
+            $this->getDoctrine()->getManager()->persist($playlist);
+            $this->getDoctrine()->getManager()->persist($playlistActiva);
+            $this->getDoctrine()->getManager()->flush();
+
+            $playlists = $serializer->serialize(
+                $playlist, 
+                'json', 
+                ['groups' => 'playlist', 'usuario_for_playlist']);
+
+                return new Response($playlists);
         }
         return new JsonResponse(['msg' => $request->getMethod() . ' not allowed']);
     }

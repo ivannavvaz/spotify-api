@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Capitulo;
+use App\Entity\Podcast;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -41,22 +42,27 @@ class CapituloController extends AbstractController
         if ($request->isMethod("GET")) {
             
             $podcast_id = $request->get('podcast_id');
+            $capitulo_id = $request->get('capitulo_id');
 
             $podcast = $this->getDoctrine()
-            ->getRepository(Capitulo::class)
+            ->getRepository(Podcast::class)
             ->findOneBy(['id' => $podcast_id]);
             
-            #capitulos
+            #capitulo
             $capitulo = $this->getDoctrine()
             ->getRepository(Capitulo::class)
-            ->findOneBy(['podcast' => $podcast]);
+            ->findOneBy(['id' => $capitulo_id]);
 
-            $capitulo = $serializer->serialize(
-                $capitulo, 
-                'json', 
-                ['groups' => 'capitulo']);
+            if ($capitulo->getPodcast() == $podcast) {
+                $capitulo = $serializer->serialize(
+                    $capitulo, 
+                    'json', 
+                    ['groups' => 'capitulo']);
+    
+                return new Response($capitulo);
+            }
 
-            return new Response($capitulo);
+            return new JsonResponse(['msg' => "Not found."], 404);
         }
         return new JsonResponse(['msg' => $request->getMethod() . ' not allowed']);
     }
