@@ -21,7 +21,7 @@ class Podcast
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      *
-     * @Groups({"podcast", "podcast_for_user"})
+     * @Groups({"podcast", "podcast_for_usuario", "podcasts"})
      */
     private $id;
 
@@ -30,7 +30,7 @@ class Podcast
      *
      * @ORM\Column(name="titulo", type="string", length=100, nullable=false)
      *
-     * @Groups({"podcast"})
+     * @Groups({"podcast", "podcasts", "podcast_for_usuario"})
      */
     private $titulo;
 
@@ -39,7 +39,7 @@ class Podcast
      *
      * @ORM\Column(name="imagen", type="string", length=255, nullable=true)
      *
-     * @Groups({"podcast", "podcast_for_user"})
+     * @Groups({"podcast", "podcast_for_usuario", "podcasts"})
      */
     private $imagen;
 
@@ -48,7 +48,7 @@ class Podcast
      *
      * @ORM\Column(name="descripcion", type="text", length=65535, nullable=true)
      *
-     * @Groups({"podcast"})
+     * @Groups({"podcast", "podcasts", "podcast_for_usuario"})
      */
     private $descripcion;
 
@@ -57,7 +57,7 @@ class Podcast
      *
      * @ORM\Column(name="anyo", type="datetime", nullable=true)
      *
-     * @Groups({"podcast", "podcast_for_user"})
+     * @Groups({"podcast", "podcast_for_usuario", "podcasts"})
      */
     private $anyo;
 
