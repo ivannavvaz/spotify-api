@@ -50,7 +50,7 @@ usuarioPodcasts:
   methods: GET
 
 usuarioPodcast:
-  path: /usuario/{usuario_id}/podcast/{id
+  path: /usuario/{usuario_id}/podcast/{podcast_id}
   controller: App\Controller\PodcastController::usuarioPodcast
   methods: POST|DELETE
 
