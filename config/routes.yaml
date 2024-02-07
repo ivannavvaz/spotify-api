@@ -14,6 +14,16 @@ usuario:
   controller: App\Controller\UsuarioController::usuario
   methods: GET|PUT
 
+usuarioEmail:
+  path: /usuario/{email}/email
+  controller: App\Controller\UsuarioController::usuarioEmail
+  methods: GET
+
+usuarioUsername:
+  path: /usuario/{username}/username
+  controller: App\Controller\UsuarioController::usuarioUsername
+  methods: GET
+  
 #seguidoresUsuario:
 #  path: /usuario/{id}/seguidos
 #  controller: App\Controller\UsuarioController::seguidoresUsuario

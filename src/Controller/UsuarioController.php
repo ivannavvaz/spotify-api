@@ -82,8 +82,16 @@ class UsuarioController extends AbstractController
                 ->getRepository(Usuario::class)
                 ->findOneBy(['id' => $id]);
 
+
+
+            if (is_null($usuario)) {
+                return new JsonResponse(['error' => 'auth required'], 401);
+            }
+            
+
             $usuario = $serializer->serialize($usuario, 'json', ['groups' => ['usuarios']]);
 
+            
             return new Response($usuario);
         }
 
@@ -121,6 +129,52 @@ class UsuarioController extends AbstractController
 
         return new JsonResponse(['msg' => $request->getMethod() . ' not allowed']);
 
+    }
+
+    public function usuarioEmail(Request $request, SerializerInterface $serializer)
+    {
+        if ($request->isMethod('GET')) {
+            $email = $request->get('email');
+
+            $usuario = $this->getDoctrine()
+                ->getRepository(Usuario::class)
+                ->findOneBy(['email' => $email]);
+
+
+
+            if (is_null($usuario)) {
+                return new JsonResponse(['error' => 'auth required'], 401);
+            }
+            
+
+            $usuario = $serializer->serialize($usuario, 'json', ['groups' => ['usuarios']]);
+
+            
+            return new Response($usuario);
+        }
+    }
+
+    public function usuarioUsername(Request $request, SerializerInterface $serializer)
+    {
+        if ($request->isMethod('GET')) {
+            $username = $request->get('username');
+
+            $usuario = $this->getDoctrine()
+                ->getRepository(Usuario::class)
+                ->findOneBy(['username' => $username]);
+
+
+
+            if (is_null($usuario)) {
+                return new JsonResponse(['error' => 'auth required'], 401);
+            }
+            
+
+            $usuario = $serializer->serialize($usuario, 'json', ['groups' => ['usuarios']]);
+
+            
+            return new Response($usuario);
+        }
     }
 
 }
