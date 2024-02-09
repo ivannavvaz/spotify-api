@@ -140,12 +140,9 @@ class UsuarioController extends AbstractController
                 ->getRepository(Usuario::class)
                 ->findOneBy(['email' => $email]);
 
-
-
             if (is_null($usuario)) {
-                return new JsonResponse(['error' => 'auth required'], 401);
+                return new JsonResponse(['error' => 'Not Found'], 404);
             }
-            
 
             $usuario = $serializer->serialize($usuario, 'json', ['groups' => ['usuarios']]);
 
@@ -166,7 +163,7 @@ class UsuarioController extends AbstractController
 
 
             if (is_null($usuario)) {
-                return new JsonResponse(['error' => 'auth required'], 401);
+                return new JsonResponse(['error' => 'Not Found'], 404);
             }
             
 
