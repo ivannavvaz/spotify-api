@@ -15,13 +15,13 @@ usuario:
   methods: GET|PUT
 
 usuarioEmail:
-  path: /usuario/{email}/email
-  controller: App\Controller\UsuarioController::usuarioEmail
+  path: /loginByEmail
+  controller: App\Controller\UsuarioController::usuarioByEmail
   methods: GET
 
 usuarioUsername:
-  path: /usuario/{username}/username
-  controller: App\Controller\UsuarioController::usuarioUsername
+  path: /loginByUsername
+  controller: App\Controller\UsuarioController::usuarioByUsername
   methods: GET
   
 #seguidoresUsuario:
