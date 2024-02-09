@@ -134,11 +134,15 @@ class UsuarioController extends AbstractController
     public function usuarioByEmail(Request $request, SerializerInterface $serializer)
     {
         if ($request->isMethod('GET')) {
-            $email = $request->get('email');
+            $bodyData = $request->getContent();
+            $bodyData = json_decode($bodyData, true);
+
+            $email = $bodyData['email'];
+            $password = $bodyData['password'];
 
             $usuario = $this->getDoctrine()
                 ->getRepository(Usuario::class)
-                ->findOneBy(['email' => $email]);
+                ->findOneBy(['email' => $email, 'password' => $password]);
 
             if (is_null($usuario)) {
                 return new JsonResponse(['error' => 'Unauthorized'], 401);
@@ -154,14 +158,16 @@ class UsuarioController extends AbstractController
     public function usuarioByUsername(Request $request, SerializerInterface $serializer)
     {
         if ($request->isMethod('GET')) {
+            $bodyData = $request->getContent();
+            $bodyData = json_decode($bodyData, true);
 
-            $username = $request->get("username");
-            //$password = $request->get("password");
+            $username = $bodyData['username'];
+            $password = $bodyData['password'];
                     
 
             $usuario = $this->getDoctrine()
                 ->getRepository(Usuario::class)
-                ->findOneBy(['username' => $username]);
+                ->findOneBy(['username' => $username, 'password' => $password]);
 
 
             if (is_null($usuario) ) {
