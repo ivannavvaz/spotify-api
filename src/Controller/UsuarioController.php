@@ -137,6 +137,8 @@ class UsuarioController extends AbstractController
             $bodyData = $request->getContent();
             $bodyData = json_decode($bodyData, true);
 
+            $bodyData = $bodyData['userInfoEmail'];
+
             $email = $bodyData['email'];
             $password = $bodyData['password'];
 
@@ -161,9 +163,10 @@ class UsuarioController extends AbstractController
             $bodyData = $request->getContent();
             $bodyData = json_decode($bodyData, true);
 
+            $bodyData = $bodyData['userInfoUsername'];
+
             $username = $bodyData['username'];
             $password = $bodyData['password'];
-                    
 
             $usuario = $this->getDoctrine()
                 ->getRepository(Usuario::class)
