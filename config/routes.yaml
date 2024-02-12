@@ -154,6 +154,11 @@ albumCanciones:
   controller: App\Controller\AlbumController::albumCanciones
   methods: GET
 
+usuarioAlbums:
+  path: /usuario/{usuario_id}/albums
+  controller: App\Controller\AlbumController::albumsUsuario
+  methods: GET
+
 calidades:
   path: /calidades
   controller: App\Controller\CalidadController::calidades
