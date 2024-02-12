@@ -40,7 +40,7 @@ class Usuario
      *
      * @ORM\Column(name="password", type="string", length=150, nullable=false)
      *
-     * @Groups({"usuarios", "usuario_for_configuracion"})
+     * @Groups({"usuarios", "usuario_for_configuracion", "usuario_for_playlist"})
      */
     private $password;
 
@@ -49,7 +49,7 @@ class Usuario
      *
      * @ORM\Column(name="email", type="string", length=150, nullable=false)
      *
-     * @Groups({"usuarios", "usuario_for_configuracion"})
+     * @Groups({"usuarios", "usuario_for_configuracion", "usuario_for_playlist"})
      */
     private $email;
 
@@ -58,7 +58,7 @@ class Usuario
      *
      * @ORM\Column(name="genero", type="string", length=1, nullable=true)
      *
-     * @Groups({"usuarios", "usuario_for_configuracion"})
+     * @Groups({"usuarios", "usuario_for_configuracion", "usuario_for_playlist"})
      */
     private $genero;
 
@@ -67,7 +67,7 @@ class Usuario
      *
      * @ORM\Column(name="fecha_nacimiento", type="date", nullable=false)
      *
-     * @Groups({"usuarios", "usuario_for_configuracion"})
+     * @Groups({"usuarios", "usuario_for_configuracion", "usuario_for_playlist"})
      */
     private $fechaNacimiento;
 
@@ -76,7 +76,7 @@ class Usuario
      *
      * @ORM\Column(name="pais", type="string", length=45, nullable=true)
      *
-     * @Groups({"usuarios", "usuario_for_configuracion"})
+     * @Groups({"usuarios", "usuario_for_configuracion", "usuario_for_playlist"})
      */
     private $pais;
 
@@ -85,7 +85,7 @@ class Usuario
      *
      * @ORM\Column(name="codigo_postal", type="string", length=20, nullable=true)
      *
-     * @Groups({"usuarios", "usuario_for_configuracion"})
+     * @Groups({"usuarios", "usuario_for_configuracion", "usuario_for_playlist"})
      */
     private $codigoPostal;
 
@@ -137,7 +137,7 @@ class Usuario
      *   }
      * )
      *
-     *
+     * @Groups({"album_for_usuario"})
      */
     private $album = array();
 

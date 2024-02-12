@@ -39,7 +39,7 @@ class Playlist
      *
      * @ORM\Column(name="numero_canciones", type="integer", nullable=true, options={"unsigned"=true})
      *
-     * @Groups({"playlist, playlist_for_user"})
+     * @Groups({"playlist", "playlist_for_user"})
      */
     private $numeroCanciones;
 
@@ -69,7 +69,7 @@ class Playlist
      *
      * @ORM\ManyToMany(targetEntity="Usuario", mappedBy="playlist")
      *
-     * @Groups({""})
+     * @Groups({"playlist"})
      */
     private $usuarioSeguidor = array();
 
