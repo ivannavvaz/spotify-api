@@ -84,16 +84,18 @@ class AlbumController extends AbstractController
         $id = $request->get('usuario_id');
 
         if ($request->isMethod('GET')) {
-            $albums = $this->getDoctrine()
+            $usuario = $this->getDoctrine()
                 ->getRepository(Usuario::class)
                 ->findOneBy(['id' => $id]);
+
+            $albums = $usuario->getAlbum();
 
             $albums = $serializer->serialize(
                 $albums,
                 'json',
-                ['groups' => ['album_for_usuario', 'album_for_user', 'artista_for_album', 'artista_for_user']]
+                ['groups' => ['album_for_user', 'artista_for_album', 'artista_for_user']]
             );
-
+            
             return new Response($albums);
         }
 
