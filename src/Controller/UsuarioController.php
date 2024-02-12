@@ -7,6 +7,7 @@ use App\Entity\Configuracion;
 use App\Entity\Idioma;
 use App\Entity\TipoDescarga;
 use App\Entity\Usuario;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -133,11 +134,16 @@ class UsuarioController extends AbstractController
 
     public function usuarioByEmail(Request $request, SerializerInterface $serializer)
     {
-        if ($request->isMethod('GET')) {
+        // IMPORTANTE: para que un metodo con Body funcione, el request debe ser POST de lo
+        // contrario a pesar de que esde postman esto sea valido, desde retrofit saltaria
+        // un error que incapacitaria la request
+        //
+        // A tener en cuenta en todos los metodos con body
+
+
+        if ($request->isMethod('POST')) {
             $bodyData = $request->getContent();
             $bodyData = json_decode($bodyData, true);
-
-            $bodyData = $bodyData['userInfoEmail'];
 
             $email = $bodyData['email'];
             $password = $bodyData['password'];
@@ -159,11 +165,10 @@ class UsuarioController extends AbstractController
 
     public function usuarioByUsername(Request $request, SerializerInterface $serializer)
     {
-        if ($request->isMethod('GET')) {
+        if ($request->isMethod('POST')) {
             $bodyData = $request->getContent();
-            $bodyData = json_decode($bodyData, true);
 
-            $bodyData = $bodyData['userInfoUsername'];
+            $bodyData = json_decode($bodyData, true);
 
             $username = $bodyData['username'];
             $password = $bodyData['password'];

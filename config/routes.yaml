@@ -17,12 +17,12 @@ usuario:
 usuarioEmail:
   path: /loginByEmail
   controller: App\Controller\UsuarioController::usuarioByEmail
-  methods: GET
+  methods: POST
 
 usuarioUsername:
   path: /loginByUsername
   controller: App\Controller\UsuarioController::usuarioByUsername
-  methods: GET
+  methods: POST
   
 #seguidoresUsuario:
 #  path: /usuario/{id}/seguidos
