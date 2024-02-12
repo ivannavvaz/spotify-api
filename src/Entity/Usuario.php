@@ -137,7 +137,7 @@ class Usuario
      *   }
      * )
      *
-     * @Groups({"album_for_usuario"})
+     *
      */
     private $album = array();
 
