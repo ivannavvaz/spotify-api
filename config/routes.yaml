@@ -85,7 +85,7 @@ suscripcionUsuario:
   methods: GET
 
 playlists:
-  path: /playlist
+  path: /playlists
   controller: App\Controller\PlaylistController::playlists
   methods: GET
 
