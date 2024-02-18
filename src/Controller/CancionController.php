@@ -68,13 +68,29 @@ class CancionController extends AbstractController
                 ->getRepository(AnyadeCancionPlaylist::class)
                 ->findBy(['playlist' => $playlist]);
 
-            $anyadeCancionPlaylist = $serializer->serialize(
-                $anyadeCancionPlaylist,
+
+            $res = array();
+
+            foreach ($anyadeCancionPlaylist as $cancionPlaylist)
+            {
+
+                $cancion = $this->getDoctrine()
+                ->getRepository(Cancion::class)
+                ->findOneBy(['id' => $cancionPlaylist->getCancion()]);
+
+                //$clonada = $cancion[0];
+                
+                $res[] = $cancion;
+            }
+                
+
+            $res = $serializer->serialize(
+                $res,
                 'json',
                 ['groups' => ['canciones_de_playlist', 'cancion', 'album_for_cancion', "artista_for_cancion"]]
             );
 
-            return new Response($anyadeCancionPlaylist);
+            return new Response($res);
         }
 
         return new JsonResponse(['msg' => $request->getMethod() . ' not allowed']);
