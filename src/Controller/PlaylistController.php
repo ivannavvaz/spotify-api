@@ -141,13 +141,18 @@ class PlaylistController extends AbstractController
 
         if ($request->isMethod("POST")) {
 
-            $titulo = $request->get("titulo");
-            $nCanciones = $request->get("numero_canciones");
+            $bodyData = $request->getContent();
+            $bodyData = json_decode($bodyData, true);
+
+            $titulo = $bodyData['titulo'];
+
+            //$titulo = $request->get("titulo");
+            //$nCanciones = $bodyData['numero_canciones'];;
 
             $playlist = new Playlist();
 
             $playlist->setTitulo($titulo);
-            $playlist->setNumeroCanciones($nCanciones);
+            $playlist->setNumeroCanciones(0);
             $playlist->setFechaCreacion(new DateTime('now'));
             $playlist->setUsuario($usuario);
 
