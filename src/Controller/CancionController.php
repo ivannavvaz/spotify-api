@@ -100,6 +100,7 @@ class CancionController extends AbstractController
     {
         $idPlaylist = $request->get('playlist_id');
         $idCancion = $request->get('cancion_id');
+        $idUsuario = $request->get('usuario_id');
 
         $playlist = $this->getDoctrine()
             ->getRepository(Playlist::class)
@@ -109,13 +110,11 @@ class CancionController extends AbstractController
             ->getRepository(Cancion::class)
             ->findOneBy(['id' => $idCancion]);
 
+        $usuario = $this->getDoctrine()
+            ->getRepository(Usuario::class)
+            ->findOneBy(['id' => $idUsuario]);
+
         if ($request->isMethod('POST')) {
-
-            $idUsuario = $request->query->get('idUsuario');
-
-            $usuario = $this->getDoctrine()
-                ->getRepository(Usuario::class)
-                ->findOneBy(['id' => $idUsuario]);
 
             $anyadeCancionPlaylist = new AnyadeCancionPlaylist(new \DateTime(), $usuario, $playlist, $cancion);
 
