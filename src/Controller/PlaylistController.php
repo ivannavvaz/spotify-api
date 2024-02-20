@@ -167,7 +167,7 @@ class PlaylistController extends AbstractController
             $playlists = $serializer->serialize(
                 $playlist, 
                 'json', 
-                ['groups' => 'playlist', 'usuario_for_playlist']);
+                ['groups' => 'playlist_post']);
 
                 return new Response($playlists);
         }
