@@ -172,7 +172,7 @@ class PlaylistController extends AbstractController
             $playlists = $serializer->serialize(
                 $playlist, 
                 'json', 
-                ['groups' => 'playlist', 'usuario_for_playlist']);
+                ['groups' => 'playlist_post']);
 
                 return new Response($playlists);
         }
@@ -256,7 +256,7 @@ class PlaylistController extends AbstractController
 
                 
 
-                $deletedPlaylist = $serializer->serialize($playlist, 'json', ['groups' => 'playlist', 'usuario_for_playlist']);
+                $deletedPlaylist = $serializer->serialize($playlist, 'json', ['groups' => 'playlist_post']);
                 return new Response($deletedPlaylist);
             }
             return new JsonResponse(['msg' => "Not found."], 404);
