@@ -26,16 +26,21 @@ class PlaylistController extends AbstractController
                 ->findAll();
 
             #Playlists favoritas
-            $playlistFavs = $this->getDoctrine()
-            ->getRepository(Favoritas::class)
-            ->findAll();
+            #$playlistFavs = $this->getDoctrine()
+            #->getRepository(Favoritas::class)
+            #->findAll();
 
             #MIX
-            $playlists = [$playlistFavs, $playlistActivas];
-            
+            #$playlists = [$playlistFavs, $playlistActivas];
+
+            $playlists = array();
+
+            foreach ($playlistActivas as $activa){
+                $playlists[] = $activa->getPlaylist();
+            }
 
             $playlists = $serializer->serialize(
-                $playlists, 
+                $playlists,
                 'json', 
                 ['groups' => ['favoritas', 'activa', 'playlist', 'usuario_for_playlist']]);
 
