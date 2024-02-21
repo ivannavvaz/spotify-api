@@ -190,7 +190,7 @@ class UsuarioController extends AbstractController
         }
     }
 
-    public function usuarioValdar(Request $request, SerializerInterface $serializer)
+    public function usuarioValidar(Request $request, SerializerInterface $serializer)
     {
         if ($request->isMethod('POST')) {
             $bodyData = $request->getContent();
@@ -209,11 +209,11 @@ class UsuarioController extends AbstractController
                 ->findOneBy(['email' => $email]);
 
             if (is_null($usuarioEmail) && is_null($usuarioUsername)) {
-                return new JsonResponse(['error' => 'Unauthorized'], 401);
+                return new JsonResponse(['error' => 'Authorized'], 200);
             }
 
+            return new JsonResponse(['error' => 'Unauthorized'], 401);
 
-            return new JsonResponse(['error' => 'Authorized'], 200);
         }
     }
 
