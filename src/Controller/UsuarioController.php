@@ -190,4 +190,31 @@ class UsuarioController extends AbstractController
         }
     }
 
+    public function usuarioValdar(Request $request, SerializerInterface $serializer)
+    {
+        if ($request->isMethod('POST')) {
+            $bodyData = $request->getContent();
+
+            $bodyData = json_decode($bodyData, true);
+
+            $username = $bodyData['username'];
+            $email = $bodyData['email'];
+
+            $usuarioUsername = $this->getDoctrine()
+                ->getRepository(Usuario::class)
+                ->findOneBy(['username' => $username]);
+
+            $usuarioEmail = $this->getDoctrine()
+                ->getRepository(Usuario::class)
+                ->findOneBy(['email' => $email]);
+
+            if (is_null($usuarioEmail) && is_null($usuarioUsername)) {
+                return new JsonResponse(['error' => 'Unauthorized'], 401);
+            }
+
+
+            return new JsonResponse(['error' => 'Authorized'], 200);
+        }
+    }
+
 }

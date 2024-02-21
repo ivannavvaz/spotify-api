@@ -23,7 +23,12 @@ usuarioUsername:
   path: /loginByUsername
   controller: App\Controller\UsuarioController::usuarioByUsername
   methods: POST
-  
+
+usuarioValidar:
+  path: /usuario/validar
+  controller: App\Controller\UsuarioController::usuarioValidar
+  methods: POST
+
 #seguidoresUsuario:
 #  path: /usuario/{id}/seguidos
 #  controller: App\Controller\UsuarioController::seguidoresUsuario
