@@ -13,6 +13,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 class PodcastController extends AbstractController
 {
 
+
     public function podcasts(Request $request, SerializerInterface $serializer)
     {
 
@@ -29,6 +30,7 @@ class PodcastController extends AbstractController
         return new JsonResponse(['msg' => $request->getMethod() . ' not allowed']);
 
     }
+
 
     public function podcast(Request $request, SerializerInterface $serializer)
     {
@@ -144,7 +146,6 @@ class PodcastController extends AbstractController
             return new Response($podcast);
 
         }
-
 
         return new JsonResponse(['msg' => $request->getMethod() . ' not allowed']);
 
