@@ -209,10 +209,9 @@ class UsuarioController extends AbstractController
                 ->findOneBy(['email' => $email]);
 
             if (is_null($usuarioEmail) && is_null($usuarioUsername)) {
-                return new JsonResponse(['error' => 'Authorized'], 200);
+                return new JsonResponse(['response' => 'Authorized']);
             }
-
-            return new JsonResponse(['error' => 'Unauthorized'], 401);
+            return new JsonResponse(['response' => 'Unauthorized']);
 
         }
     }
