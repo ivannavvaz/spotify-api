@@ -70,7 +70,7 @@ class AlbumController extends AbstractController
             $canciones = $serializer->serialize(
                 $canciones,
                 'json',
-                ['groups' => ['cancion_for_album']]
+                ['groups' => ['canciones_de_playlist', 'cancion', 'album_for_cancion', "artista_for_cancion"]]
             );
 
             return new Response($canciones);
