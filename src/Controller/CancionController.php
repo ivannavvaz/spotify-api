@@ -68,13 +68,29 @@ class CancionController extends AbstractController
                 ->getRepository(AnyadeCancionPlaylist::class)
                 ->findBy(['playlist' => $playlist]);
 
-            $anyadeCancionPlaylist = $serializer->serialize(
-                $anyadeCancionPlaylist,
+
+            $res = array();
+
+            foreach ($anyadeCancionPlaylist as $cancionPlaylist)
+            {
+
+                $cancion = $this->getDoctrine()
+                ->getRepository(Cancion::class)
+                ->findOneBy(['id' => $cancionPlaylist->getCancion()]);
+
+                //$clonada = $cancion[0];
+                
+                $res[] = $cancion;
+            }
+                
+
+            $res = $serializer->serialize(
+                $res,
                 'json',
                 ['groups' => ['canciones_de_playlist', 'cancion', 'album_for_cancion', "artista_for_cancion"]]
             );
 
-            return new Response($anyadeCancionPlaylist);
+            return new Response($res);
         }
 
         return new JsonResponse(['msg' => $request->getMethod() . ' not allowed']);
@@ -84,6 +100,7 @@ class CancionController extends AbstractController
     {
         $idPlaylist = $request->get('playlist_id');
         $idCancion = $request->get('cancion_id');
+        $idUsuario = $request->get('usuario_id');
 
         $playlist = $this->getDoctrine()
             ->getRepository(Playlist::class)
@@ -93,13 +110,11 @@ class CancionController extends AbstractController
             ->getRepository(Cancion::class)
             ->findOneBy(['id' => $idCancion]);
 
+        $usuario = $this->getDoctrine()
+            ->getRepository(Usuario::class)
+            ->findOneBy(['id' => $idUsuario]);
+
         if ($request->isMethod('POST')) {
-
-            $idUsuario = $request->query->get('idUsuario');
-
-            $usuario = $this->getDoctrine()
-                ->getRepository(Usuario::class)
-                ->findOneBy(['id' => $idUsuario]);
 
             $anyadeCancionPlaylist = new AnyadeCancionPlaylist(new \DateTime(), $usuario, $playlist, $cancion);
 

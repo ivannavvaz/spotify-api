@@ -90,7 +90,7 @@ suscripcionUsuario:
   methods: GET
 
 playlists:
-  path: /playlist
+  path: /playlists
   controller: App\Controller\PlaylistController::playlists
   methods: GET
 
@@ -125,7 +125,7 @@ cancionesPlaylist:
   methods: GET
 
 cancionPlaylist:
-  path: /playlist/{playlist_id}/cancion/{cancion_id}
+  path: /playlist/{playlist_id}/cancion/{cancion_id}/usuario/{usuario_id}
   controller: App\Controller\CancionController::cancionPlaylist
   methods: POST|DELETE
 

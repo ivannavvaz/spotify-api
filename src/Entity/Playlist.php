@@ -21,7 +21,7 @@ class Playlist
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      *
-     * @Groups({"playlist", "playlist_for_user"})
+     * @Groups({"playlist", "playlist_for_user", "playlist_post"})
      */
     private $id;
 
@@ -30,7 +30,7 @@ class Playlist
      *
      * @ORM\Column(name="titulo", type="string", length=150, nullable=false)
      *
-     * @Groups({"playlist", "playlist_for_user"})
+     * @Groups({"playlist", "playlist_for_user", "playlist_post"})
      */
     private $titulo;
 
@@ -39,7 +39,7 @@ class Playlist
      *
      * @ORM\Column(name="numero_canciones", type="integer", nullable=true, options={"unsigned"=true})
      *
-     * @Groups({"playlist", "playlist_for_user"})
+     * @Groups({"playlist", "playlist_for_user", "playlist_post"})
      */
     private $numeroCanciones;
 
@@ -48,7 +48,7 @@ class Playlist
      *
      * @ORM\Column(name="fecha_creacion", type="date", nullable=true)
      *
-     * @Groups({"playlist", "playlist_for_user"})
+     * @Groups({"playlist", "playlist_for_user", "playlist_post"})
      */
     private $fechaCreacion;
 

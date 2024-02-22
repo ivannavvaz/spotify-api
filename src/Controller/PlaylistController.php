@@ -26,16 +26,21 @@ class PlaylistController extends AbstractController
                 ->findAll();
 
             #Playlists favoritas
-            $playlistFavs = $this->getDoctrine()
-            ->getRepository(Favoritas::class)
-            ->findAll();
+            #$playlistFavs = $this->getDoctrine()
+            #->getRepository(Favoritas::class)
+            #->findAll();
 
             #MIX
-            $playlists = [$playlistFavs, $playlistActivas];
-            
+            #$playlists = [$playlistFavs, $playlistActivas];
+
+            $playlists = array();
+
+            foreach ($playlistActivas as $activa){
+                $playlists[] = $activa->getPlaylist();
+            }
 
             $playlists = $serializer->serialize(
-                $playlists, 
+                $playlists,
                 'json', 
                 ['groups' => ['favoritas', 'activa', 'playlist', 'usuario_for_playlist']]);
 
@@ -141,13 +146,18 @@ class PlaylistController extends AbstractController
 
         if ($request->isMethod("POST")) {
 
-            $titulo = $request->get("titulo");
-            $nCanciones = $request->get("numero_canciones");
+            $bodyData = $request->getContent();
+            $bodyData = json_decode($bodyData, true);
+
+            $titulo = $bodyData['titulo'];
+
+            //$titulo = $request->get("titulo");
+            //$nCanciones = $bodyData['numero_canciones'];;
 
             $playlist = new Playlist();
 
             $playlist->setTitulo($titulo);
-            $playlist->setNumeroCanciones($nCanciones);
+            $playlist->setNumeroCanciones(0);
             $playlist->setFechaCreacion(new DateTime('now'));
             $playlist->setUsuario($usuario);
 
@@ -162,7 +172,7 @@ class PlaylistController extends AbstractController
             $playlists = $serializer->serialize(
                 $playlist, 
                 'json', 
-                ['groups' => 'playlist', 'usuario_for_playlist']);
+                ['groups' => 'playlist_post']);
 
                 return new Response($playlists);
         }
@@ -246,7 +256,7 @@ class PlaylistController extends AbstractController
 
                 
 
-                $deletedPlaylist = $serializer->serialize($playlist, 'json', ['groups' => 'playlist', 'usuario_for_playlist']);
+                $deletedPlaylist = $serializer->serialize($playlist, 'json', ['groups' => 'playlist_post']);
                 return new Response($deletedPlaylist);
             }
             return new JsonResponse(['msg' => "Not found."], 404);
