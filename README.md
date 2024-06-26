@@ -1,11 +1,11 @@
-Pasos a seguir para la configuración
-1. Clonar el repositorio 
+Steps to follow for configuration:
+1. Clone the repository
 ```git clone ...```
-2. Configurar el archivo .env
+2. Configure the .env file
 ```cp .env .env.local```
-3. Instalar las dependencias
+3. Install dependencies
 ```docker compose up -d```
 ```Docker compose exec web bash```
 ```composer install```
-4. Cargar la base de datos
+4. Loading the database
 ```mysql -u root -pdbrootpass -h add-dbms < db/spotify.sql```
